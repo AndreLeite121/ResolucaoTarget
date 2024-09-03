@@ -1,12 +1,9 @@
 import json
 
-with open('/Users/andreleite/Desktop/ResolucaoTarget/3/Faturamento.json', 'r') as file:
+with open('3/dados.json', 'r') as file:
     dados = json.load(file)
 
-faturamentos = dados['faturamentos']
-
-
-dias_com_faturamento = [valor for valor in faturamentos if valor > 0]
+dias_com_faturamento = [dia['valor'] for dia in dados if dia['valor'] > 0]
 
 menor_valor = min(dias_com_faturamento) if dias_com_faturamento else None
 maior_valor = max(dias_com_faturamento) if dias_com_faturamento else None
